@@ -22,6 +22,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import com.WSREST.config.AppConfig;
 import com.WSREST.model.*;
 import com.WSREST.service.CommandeService;
+import com.WSREST.service.ProduitService;
 
 @Controller
 @RequestMapping(value="/factures")
@@ -40,4 +41,13 @@ public @ResponseBody List<Commande> getall() {
     	CommandeService srvcommande = (CommandeService) context.getBean("commandeservice");
     	return srvcommande.searchbynumfacture(numfacture);
     }	
+	
+	
+	@RequestMapping(value = "/date/{datef}", headers="Accept=*/*",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)            
+    public @ResponseBody List<Commande> getfacturewithdate(@PathVariable("datef") String datefacture) {  		
+		AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);	
+    	CommandeService srvcommande = (CommandeService) context.getBean("commandeservice");
+    	return srvcommande.searchbydatecommande(datefacture);
+    }
+	
 }

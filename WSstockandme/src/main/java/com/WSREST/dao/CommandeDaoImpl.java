@@ -33,6 +33,19 @@ public class CommandeDaoImpl extends AbstractDao implements CommandeDao {
 		return (List<Commande>) criteria.list();
 	}
 
+	public List<Commande> searchbydatecommande(String datecommande) {
+		// TODO Auto-generated method stub
+		String expr=datecommande+"%";
+		Criteria criteria = getSession().createCriteria(Commande.class);
+		criteria.add(Restrictions.sqlRestriction("date_commande like '"+expr+"'"));
+	    return criteria.list();
+	}
+
+	public void ajouter(Commande commande) {
+		// TODO Auto-generated method stub
+		 this.persist(commande);
+	}
+
 	
 	}
 	

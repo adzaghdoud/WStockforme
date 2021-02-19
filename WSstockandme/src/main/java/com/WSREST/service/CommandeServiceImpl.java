@@ -24,6 +24,15 @@ public class CommandeServiceImpl implements CommandeService{
 		// TODO Auto-generated method stub
 		return dao.lister();
 	}
+	public List<Commande> searchbydatecommande(String datecommande) {
+		// TODO Auto-generated method stub
+		return dao.searchbydatecommande(datecommande);
+	}
+	public void ajouter(Commande commande) {
+		// TODO Auto-generated method stub
+		dao.ajouter(commande);
+		
+	}
 
 	
 }
