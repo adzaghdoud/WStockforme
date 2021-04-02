@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ import com.WSREST.service.CommandeService;
 import com.WSREST.service.ProduitService;
 
 @Controller
+@CrossOrigin(origins = "*")
 @RequestMapping(value="/factures")
 public class MainRESTController {
 @RequestMapping(value = "/listefactures", headers="Accept=*/*",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)            

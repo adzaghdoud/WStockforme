@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.DateSerializer;
 
@@ -18,7 +19,7 @@ public class Commande {
 	@Id
 	private int numcommande;
 	@Column(name = "date_commande")
-	@JsonSerialize(using=DateSerializer.class)
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Timestamp date;
 
 	@Column(name = "numclient")
@@ -42,32 +43,8 @@ public class Commande {
 	@Column(name = "numfacture")
 	private String numfacture;
 
-	@Column(name = "codeproduit")
-	private int codeproduit;
+	
 
-	@Column(name = "lib_produit")
-	private String libproduit;
-	
-	public String getLibproduit() {
-		
-		return this.libproduit;
-	}
-	
-	public void  setLibproduit(String l) {
-		this.libproduit=l;	
-	}
-	
-	public int getCodeproduit () {
-		
-		return this.codeproduit;
-	}
-	
-	public void setCodeproduit (int c ) {
-		
-		this.codeproduit=c;
-	}
-	
-	
 		public Timestamp getDate() {
 			return date;
 			}

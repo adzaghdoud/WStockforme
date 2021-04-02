@@ -8,7 +8,7 @@
   <name>WSstockandme Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <properties>
-		<spring.version>4.3.20.RELEASE</spring.version>
+		<spring.version>4.3.30.RELEASE</spring.version>
 		
 	</properties>
   <dependencies>
@@ -107,7 +107,38 @@
     <artifactId>spring-security-web</artifactId>
     <version>4.2.20.RELEASE</version>
 </dependency>
-     
+
+  	<dependency>
+  		<groupId>org.apache.logging.log4j</groupId>
+  		<artifactId>log4j-api</artifactId>
+  		<version>2.13.3</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.logging.log4j</groupId>
+  		<artifactId>log4j-core</artifactId>
+  		<version>2.13.3</version>
+  	</dependency>
+  	<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20190722</version>
+</dependency>
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.23</version>
+</dependency>
+  	<dependency>
+  		<groupId>javax.mail</groupId>
+  		<artifactId>mail</artifactId>
+  		<version>1.4</version>
+  	</dependency>
+  	
+  	<dependency>
+    <groupId>net.sourceforge.barbecue</groupId>
+    <artifactId>barbecue</artifactId>
+    <version>1.5-beta1</version>
+</dependency>
   </dependencies>
   <build>
     <finalName>WSstockandme</finalName>

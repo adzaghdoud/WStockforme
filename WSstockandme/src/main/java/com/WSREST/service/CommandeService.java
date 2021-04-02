@@ -7,15 +7,13 @@ import com.WSREST.model.Commande;
 public interface CommandeService {
 	void ajouter( Commande commande) ;
 	List<Commande> lister() ;
-	//List<Commande>  searchbynumclient (int numclient);
 	Commande  searchbynumfacture (String numfacture);
-	//List<Commande>  searchbynumcommande (int numclient);
-	//List<Commande>  searchbynumcommandeandnumclient (int numclient, int nummcommande);
 	List<Commande>  searchbydatecommande (String datecommande);
-	//List<Commande> searchbydateandnumclientandnumcommande (String datecommande , int numclient  , int numcommande);
-	//List<Commande> searchbydateandnumcommande(String datecommande, int numcommande) ;
-	//List<Commande>  searchbydateandnumclient (String datecommande , int numclient );
-	//List<Commande> searchbetweentwodate(String datedeb, String datefin);
-	//boolean updatecommande (String numcommmande ,String montant , String modepaiement , String statuspaiement , String modelivraison , String statuslivraison);
-
+	List<Commande> listergrouby(String datecommandes);
+	 double cajournalier(String datecommande);
+	 int nomberproduitvendu(String datecommande);
+	 int numberpaiementtovalidate();
+	 int numberpaiementrejet();
+	 Commande getinfocommande (int numcommande);
+	 List<Commande> searchcommandebetweentwodates(String date1 , String date2);
 }
