@@ -79,6 +79,7 @@ public class CommandeDaoImpl extends AbstractDao implements CommandeDao {
 			 
 		}else {
 		res = ((Double) query.uniqueResult()).doubleValue();
+		res=(double)Math.round(res * 100) / 100 ;
 		}
 	   
 		return res;
