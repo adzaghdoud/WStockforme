@@ -7,7 +7,7 @@ public class LoginsDaoimpl  extends AbstractDao implements LoginsDao{
 
 	public boolean updatepassword(String password , String login) {
 		// TODO Auto-generated method stub
-		Query query = getSession().createSQLQuery("update logins set password= MD5('"+password+"') where login = '" + login +"';");
+		Query query = getSession().createSQLQuery("update logins set password= AES_ENCRYPT('"+ password +"', UNHEX(SHA2('My secret passphrase',512))) where login = '" + login +"';");
 		query.executeUpdate();
 		int status=query.executeUpdate();
 		

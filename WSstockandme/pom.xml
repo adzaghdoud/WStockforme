@@ -4,7 +4,7 @@
   <groupId>WSstockandme</groupId>
   <artifactId>WSstockandme</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>2.0</version>
   <name>WSstockandme Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -23,7 +23,7 @@
      <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-core</artifactId>
-    <version>2.11.4</version>
+    <version>[2.9.10.7,)</version>
     </dependency>
     <dependency>
    <groupId>com.fasterxml.jackson.core</groupId>
@@ -167,5 +167,19 @@
   </dependencies>
   <build>
     <finalName>WSstockandme</finalName>
+    <plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.0</version>
+        <configuration>
+          <archive>
+           <manifest>
+            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+          </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+  </plugins>
   </build>
 </project>

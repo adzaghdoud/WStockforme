@@ -2,6 +2,7 @@ package com.WSREST.service;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +11,10 @@ import com.WSREST.dao.FournisseurDao;
 import com.WSREST.model.Fournisseur;
 @Service("FournisseurService")
 @Transactional
-public class FournisseurServiceImpl implements FournisseurService{
+public class FournisseurServiceImpl implements FournisseurService {
 	@Autowired
     private FournisseurDao dao;
-	public void addfournisseur(Fournisseur f) {
+	public void addfournisseur(Fournisseur f) throws HibernateException {
 		dao.addfournisseur(f);
 		
 	}

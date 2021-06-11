@@ -18,5 +18,6 @@ public interface ProduitDao {
 	boolean checkexistanceimage (byte [] b);
 	int getstockproduct(int codeproduit);
 	
+	
 
 }

@@ -19,7 +19,7 @@ public class Commande {
 	@Id
 	private int numcommande;
 	@Column(name = "date_commande")
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = "Europe/Paris")
 	private Timestamp date;
 
 	@Column(name = "numclient")
@@ -42,6 +42,10 @@ public class Commande {
 
 	@Column(name = "numfacture")
 	private String numfacture;
+	@Column(name = "date_validation")
+	private String date_validation;
+	@Column(name = "date_rejet")
+	private String date_rejet;
 
 	
 

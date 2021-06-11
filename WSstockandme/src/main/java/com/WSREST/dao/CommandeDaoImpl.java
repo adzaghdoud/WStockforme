@@ -127,10 +127,9 @@ public class CommandeDaoImpl extends AbstractDao implements CommandeDao {
 	}
 
 	public List<Commande> searchcommandebetweentwodates(String date1, String date2) {
-	
 		Criteria criteria = getSession().createCriteria(Commande.class);
 		criteria.add(Restrictions.sqlRestriction("DATE_FORMAT(date_commande, '%y-%m-%d') BETWEEN DATE_FORMAT('" + date1 +"', '%y-%m-%d')  AND  DATE_FORMAT('" + date2 +"', '%y-%m-%d');"));			
-		 return  criteria.list();
+		return  criteria.list();
 	}
 	
 

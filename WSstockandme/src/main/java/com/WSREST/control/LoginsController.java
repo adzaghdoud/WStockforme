@@ -1,24 +1,17 @@
 package com.WSREST.control;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.Charset;
-import java.util.Properties;
-import java.util.Random;
 
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
+import java.io.InputStream;
+import java.util.Properties;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 
 import org.apache.logging.log4j.LogManager;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -26,19 +19,13 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.WSREST.config.AppConfig;
-import com.WSREST.model.Commande;
-import com.WSREST.model.Fournisseur;
-import com.WSREST.service.CommandeService;
-import com.WSREST.service.FournisseurService;
 import com.WSREST.service.LoginsService;
 import com.WSREST.tools.RandomString;
 
@@ -52,7 +39,9 @@ public class LoginsController {
 		AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);	
 		LoginsService srvlogins = (LoginsService) context.getBean("LoginsService");	
 		LOG.info("WS :reset password for user "+login);
-		return srvlogins.updatepassword(newpassword, login);
+		boolean result = srvlogins.updatepassword(newpassword, login);
+		context.close();
+		return result;
         
 }
 	
@@ -103,7 +92,8 @@ public class LoginsController {
     		} catch (MessagingException e) {
     		System.out.println(e.getStackTrace());
     		} }
-        }
+       context.close(); 
+	   }
     }
 	
 	

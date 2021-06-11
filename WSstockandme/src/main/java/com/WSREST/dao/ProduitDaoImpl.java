@@ -74,7 +74,6 @@ public class ProduitDaoImpl  extends AbstractDao implements ProduitDao{
 	public boolean checkexistanceimage(byte[] b) {
 		boolean flag=false;
 		Query query1 = getSession().createSQLQuery("SELECT HEX(image)  from produit where HEX(image) =  HEX('"+b+"');");
-		System.out.println("size*********************"+query1.list().size());
 		
 		if (query1.uniqueResult() != null)  {
 		flag = true;	
