@@ -104,7 +104,6 @@ public class CommandeController {
 		AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);	
     	CommandeService srvcommande = (CommandeService) context.getBean("commandeservice");
     	Commande c = srvcommande.getinfocommande(Integer.parseInt(numc));
-        System.out.println("******************************"+c.getModeLivraison());
     	context.close();
     	return c;
     }
